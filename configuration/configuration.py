@@ -255,7 +255,9 @@ if 'PAGINATE_COUNT' in environ:
     PAGINATE_COUNT = _environ_get_and_map('PAGINATE_COUNT', None, _AS_INT)
 
 # # Enable installed plugins. Add the name of each plugin to the list.
-# PLUGINS = []
+PLUGINS = [
+    "netbox_dns",
+]
 
 # # Plugins configuration settings. These settings are used by various plugins that the user may have installed.
 # # Each key in the dictionary is the name of an installed plugin and its value is a dictionary of settings.
