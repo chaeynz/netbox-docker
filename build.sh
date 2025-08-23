@@ -31,7 +31,7 @@ done
 
 echo ${DOCKER_BUILD_ARGS[@]}
 
-if [ "${2}" == "--push" ]; then
+if [ "${1}" == "--push" ]; then
   DOCKER_BUILD_ARGS+=(
     --output=type=image
     --push
