@@ -15,6 +15,7 @@ if [ "${NETBOX_VER}" != "${NETBOX_VER_FROM_TAG}" ]; then
 else
     echo "NETBOX_VER matches NETBOX_VER_FROM_TAG"
 fi
+
 DOCKER_TAGS=(
     "$TAG"
     latest

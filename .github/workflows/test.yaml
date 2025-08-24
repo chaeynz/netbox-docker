@@ -12,7 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-24.04
-    name: Build and Push new docker image
+    name: Run a deployment test with the netbox image
     steps:
       - id: source-checkout
         name: Checkout
