@@ -18,7 +18,7 @@ for i in ${NETBOX_PLUGINS[@]}; do
   fi
 done
 
-echo "INFO: SUCCESS\!\! All tests passed"
+echo "INFO: SUCCESS!! All tests passed"
 
 docker compose -f docker-compose.test.yml down -v
 docker compose -f docker-compose.test.yml rm
