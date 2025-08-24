@@ -257,6 +257,7 @@ if 'PAGINATE_COUNT' in environ:
 # # Enable installed plugins. Add the name of each plugin to the list.
 PLUGINS = [
     "netbox_dns",
+    "netbox_bgp",
 ]
 
 # # Plugins configuration settings. These settings are used by various plugins that the user may have installed.
