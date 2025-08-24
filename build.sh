@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# renovate: datasource=github-tags depName=netbox-community/netbox versioning=loose
-NETBOX_VER=v4.3.6
+source netbox_version.env
 
 IMAGE_NAME=ghcr.io/chaeynz/netbox
 

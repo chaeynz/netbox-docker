@@ -7,7 +7,7 @@
     {
       customType: 'regex',
       managerFilePatterns: [
-        'build.sh'
+        'netbox_version.env'
       ],
       matchStrings: [
         '# renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s\\S+=(?<currentValue>\\S+)',
