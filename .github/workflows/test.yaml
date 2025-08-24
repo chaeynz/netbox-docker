@@ -1,0 +1,26 @@
+---
+name: test
+
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    name: Build and Push new docker image
+    steps:
+      - id: source-checkout
+        name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - id: test-netbox-deployment
+        name: Test the Netbox deployment
+        run: ./test.sh
+        shell: bash
