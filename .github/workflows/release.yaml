@@ -26,6 +26,11 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_TOKEN }}
 
+      - id: deployment-test
+        name: Run deployment test
+        run: ./test.sh --release
+        shell: bash
+
       - id: build-push-image
         name: Build and Push netbox docker image
         run: ./build.sh --push
