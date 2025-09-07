@@ -43,7 +43,7 @@ for plugin in ${NETBOX_PLUGINS[@]}; do
     echo "${_GREEN}INFO: Plugin $plugin found in Netbox deployment${_CLEAR}"
   else
     FAILED=true
-    if [ "${2}" == "--release" ]; then
+    if [ "${1}" == "--release" ]; then
       echo "${_RED}ERROR: Plugin $plugin was not found in /api/status/${_CLEAR}" >&2
       teardown
       exit 1
