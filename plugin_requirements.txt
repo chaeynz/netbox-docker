@@ -1,2 +1,2 @@
-netbox-plugin-dns==1.3.6
+netbox-plugin-dns==1.4.1
 netbox-bgp==0.17.0
