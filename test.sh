@@ -32,7 +32,7 @@ echo "${_CYAN}DEBUG: NETBOX_STATUS=$NETBOX_STATUS${_CLEAR}"
 FAILED=""
 
 for plugin in ${NETBOX_PLUGINS[@]}; do
-  RESULT=$(echo $NETBOX_STATUS | jq -r --arg key "$plugin" '."installed-apps" | has($key)')
+  RESULT=$(echo $NETBOX_STATUS | jq -r --arg key "$plugin" '."installed_apps" | has($key)')
   echo "${_CYAN}DEBUG: RESULT=$RESULT${_CLEAR}"
   if [ "$RESULT" == "" ]; then
     echo "${_RED}ERROR: The application didn't come up {_CLEAR}" >&2
