@@ -3,6 +3,16 @@
   extends: [
     "config:recommended"
   ],
+  packageRules: [
+    {
+      matchPackageNames: ["*"],
+      minimumReleaseAge: "7 days",
+    },
+    {
+      matchPackageNames: ["netbox-community/netbox"],
+      minimumReleaseAge: "5 days",
+    }
+  ],
   customManagers: [
     {
       customType: 'regex',
