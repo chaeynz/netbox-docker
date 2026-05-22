@@ -24,7 +24,7 @@ echo "${_GREEN}INFO: Detected the following plugins in config: ${NETBOX_PLUGINS[
 echo "${_GREEN}INFO: Dumping plugin_requirements.txt:${_CLEAR}"
 cat ./plugin_requirements.txt
 
-SNAPSHOT_FILE="db-snapshots/netbox-${NETBOX_VER}-core.sql.gz"
+SNAPSHOT_FILE="db-snapshots/netbox-${LATEST_DB_SNAP}-core.sql.gz"
 if [ ! -f "$SNAPSHOT_FILE" ]; then
   echo "${_RED}ERROR: DB snapshot not found: ${SNAPSHOT_FILE}${_CLEAR}" >&2
   echo "${_YELLOW}Run ./generate-db-snapshot.sh to create it, then commit the file.${_CLEAR}" >&2

@@ -18,13 +18,13 @@ set +a
 
 mkdir -p db-snapshots
 
-SNAPSHOT_FILE="db-snapshots/netbox-${NETBOX_VER}-core.sql.gz"
+SNAPSHOT_FILE="db-snapshots/netbox-${LATEST_DB_SNAP}-core.sql.gz"
 
 if [ -f "$SNAPSHOT_FILE" ]; then
   echo "${_RED}WARNING: $SNAPSHOT_FILE already exists. Overwriting.${_CLEAR}"
 fi
 
-echo "${_GREEN}INFO: Generating core DB snapshot for NetBox ${NETBOX_VER} (plugins disabled)${_CLEAR}"
+echo "${_GREEN}INFO: Generating core DB snapshot for NetBox ${LATEST_DB_SNAP} (plugins disabled)${_CLEAR}"
 
 teardown() {
   docker compose -f docker-compose.test.yml -f docker-compose.snapshot.yml down -v
