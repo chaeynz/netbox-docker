@@ -1,4 +1,3 @@
-*.sql.gz
 .netbox
 .python-version
 docker-compose.override.yml

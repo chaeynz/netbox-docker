@@ -6,4 +6,4 @@ services:
   # Mount Database dump for initdb
   postgres:
     volumes:
-      - ./db-snapshots/netbox-${NETBOX_VER}-core.sql.gz:/docker-entrypoint-initdb.d/netbox-core.sql.gz:ro
+      - ./db-snapshots/netbox-v4.4.0-core.sql.gz:/docker-entrypoint-initdb.d/netbox-core.sql.gz:ro
