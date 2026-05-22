@@ -2,3 +2,8 @@ services:
   netbox:
     ports:
       - "127.0.0.1:8000:8080"
+
+  # Mount Database dump for initdb
+  postgres:
+    volumes:
+      - ./db-snapshots/netbox-${NETBOX_VER}-core.sql.gz:/docker-entrypoint-initdb.d/netbox-core.sql.gz:ro
