@@ -254,8 +254,9 @@ METRICS_ENABLED = _environ_get_and_map('METRICS_ENABLED', 'False', _AS_BOOL)
 if 'PAGINATE_COUNT' in environ:
     PAGINATE_COUNT = _environ_get_and_map('PAGINATE_COUNT', None, _AS_INT)
 
-# # Enable installed plugins. Add the name of each plugin to the list.
-PLUGINS = [
+# # Enable installed th. Add the name of each plugin to the list.
+# Set NETBOX_PLUGINS="" in the environment to disable all plugins (e.g. for DB snapshot generation).
+PLUGINS = _environ_get_and_map('NETBOX_PLUGINS', None, _AS_LIST) if 'NETBOX_PLUGINS' in environ else [
     "netbox_dns",
     "netbox_bgp",
 ]

@@ -24,6 +24,14 @@ echo "${_GREEN}INFO: Detected the following plugins in config: ${NETBOX_PLUGINS[
 echo "${_GREEN}INFO: Dumping plugin_requirements.txt:${_CLEAR}"
 cat ./plugin_requirements.txt
 
+SNAPSHOT_FILE="db-snapshots/netbox-${NETBOX_VER}-core.sql.gz"
+if [ ! -f "$SNAPSHOT_FILE" ]; then
+  echo "${_RED}ERROR: DB snapshot not found: ${SNAPSHOT_FILE}${_CLEAR}" >&2
+  echo "${_YELLOW}Run ./generate-db-snapshot.sh to create it, then commit the file.${_CLEAR}" >&2
+  exit 1
+fi
+echo "${_GREEN}INFO: Using DB snapshot: ${SNAPSHOT_FILE}${_CLEAR}"
+
 docker compose -f docker-compose.test.yml -f docker-compose.test.override.yml up -d --build --wait --wait-timeout 900
 
 NETBOX_STATUS=$(curl -s http://127.0.0.1:8000/api/status/)
@@ -35,7 +43,7 @@ for plugin in ${NETBOX_PLUGINS[@]}; do
   RESULT=$(echo $NETBOX_STATUS | jq -r --arg key "$plugin" '."installed_apps" | has($key)')
   echo "${_CYAN}DEBUG: RESULT=$RESULT${_CLEAR}"
   if [ "$RESULT" == "" ]; then
-    echo "${_RED}ERROR: The application didn't come up {_CLEAR}" >&2
+    echo "${_RED}ERROR: The application didn't come up {$_CLEAR}" >&2
     teardown
     exit 1
   fi

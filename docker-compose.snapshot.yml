@@ -1,0 +1,13 @@
+# Compose overlay for DB snapshot generation.
+# Disables all plugins so the snapshot contains only NetBox core migrations.
+# Usage: docker compose -f docker-compose.test.yml -f docker-compose.snapshot.yml ...
+services:
+  netbox:
+    volumes: []
+    build: {}
+    environment:
+      NETBOX_PLUGINS: ""
+    image: ghcr.io/netbox-community/netbox:$NETBOX_VER
+
+  netbox-worker:
+    image: ghcr.io/netbox-community/netbox:$NETBOX_VER
