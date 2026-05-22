@@ -5,6 +5,8 @@
   ],
   rebaseWhen: "behind-base-branch",
 
+  pinDigests: true,
+
   packageRules: [
     {
       matchPackageNames: ["*"],
