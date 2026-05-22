@@ -8,7 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-push:
+    permissions:
+      contents: read       # checkout the repo
+      packages: write      # push to GHCR
+
     runs-on: ubuntu-24.04
     name: Build and Push new docker image
     steps:
@@ -23,8 +27,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GHCR_TOKEN }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - id: deployment-test
         name: Run deployment test
