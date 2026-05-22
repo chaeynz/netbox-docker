@@ -8,6 +8,15 @@ on:
       - synchronize
     branches:
       - main
+    paths:
+      - netbox_version.env
+      - plugin_requirements.txt
+
+      - configuration/**
+      - docker-compose*.yml
+      - Dockerfile
+      - test.sh
+
   workflow_dispatch:
 
 jobs:
