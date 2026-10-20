@@ -13,7 +13,7 @@ jobs:
       contents: read       # checkout the repo
       packages: write      # push to GHCR
 
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     name: Build and Push new docker image
     steps:
       - id: source-checkout
